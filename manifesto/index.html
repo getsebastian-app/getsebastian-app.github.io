@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manifesto — Sebastian</title>
+<meta name="description" content="Why we built Sebastian. For the OpenClaw community.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦀</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--coral:#FF6B6B;--coral-dark:#E55555;--dark:#0F172A;--gray:#64748B;--light:#F8FAFC;--white:#FFF;--border:#E2E8F0}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--dark);line-height:1.8;background:var(--white);-webkit-font-smoothing:antialiased}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:720px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-text{font-weight:800;font-size:20px;color:var(--dark);letter-spacing:-0.02em}
+.nav-back{color:var(--gray);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.2s}
+.nav-back:hover{color:var(--dark)}
+
+.manifesto{max-width:720px;margin:0 auto;padding:80px 24px 120px}
+.manifesto h1{font-size:clamp(32px,5vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.15;margin-bottom:48px}
+.manifesto h1 em{font-style:normal;color:var(--coral)}
+
+.manifesto h2{font-size:24px;font-weight:800;margin-top:56px;margin-bottom:16px;letter-spacing:-0.02em}
+.manifesto p{font-size:17px;color:var(--gray);margin-bottom:20px;line-height:1.8}
+.manifesto p strong{color:var(--dark)}
+.manifesto .lead{font-size:20px;color:var(--dark);line-height:1.7;margin-bottom:40px;font-weight:400}
+
+.manifesto blockquote{border-left:3px solid var(--coral);padding:16px 24px;margin:40px 0;background:var(--light);border-radius:0 12px 12px 0;font-size:18px;color:var(--dark);font-weight:500;line-height:1.6}
+
+.divider{width:48px;height:3px;background:var(--coral);border-radius:2px;margin:56px 0}
+
+.cta-block{text-align:center;margin-top:64px;padding:48px 32px;background:var(--light);border-radius:20px}
+.cta-block h3{font-size:24px;font-weight:800;margin-bottom:12px}
+.cta-block p{color:var(--gray);margin-bottom:24px;font-size:16px}
+.cta-block .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;font-weight:600;font-size:16px;text-decoration:none;background:var(--coral);color:white;transition:all 0.2s}
+.cta-block .btn:hover{opacity:0.9;transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,107,0.3)}
+
+.footer{padding:40px 24px;text-align:center;color:var(--gray);font-size:13px;border-top:1px solid var(--border)}
+.footer a{color:var(--gray);text-decoration:none}
+.footer a:hover{color:var(--dark)}
+
+@media(max-width:768px){.manifesto{padding:48px 20px 80px}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span style="font-size:28px">🦀</span>
+      <span class="nav-logo-text">Sebastian</span>
+    </a>
+    <a href="/" class="nav-back">← Back to home</a>
+  </div>
+</nav>
+
+<article class="manifesto">
+
+<h1>We don't sell AI.<br>We remove <em>obstacles</em>.</h1>
+
+<p class="lead">Sebastian exists for one reason: to give OpenClaw users the fastest path from "I want this" to "it's running."</p>
+
+<div class="divider"></div>
+
+<h2>You already get it</h2>
+
+<p>You've seen the OpenClaw demos. You've read the docs. You know what a personal AI with skills, memory, and real-world actions can do. <strong>You don't need to be sold on the idea.</strong></p>
+
+<p>What you need is for it to actually work. In your messenger. Today. Without spending a weekend on server setup, API keys, Docker configs, and debugging webhooks at 2 AM.</p>
+
+<h2>The setup tax</h2>
+
+<p>OpenClaw is remarkable software. But running it yourself means: rent a VPS, install Node, configure SSL, get API keys from Anthropic, Brave, Groq, ElevenLabs, set up a Telegram bot, wire webhooks, configure YAML, monitor uptime, handle updates.</p>
+
+<p><strong>That's 4-8 hours if you know what you're doing.</strong> And a recurring tax of maintenance, debugging, and "why did it stop working at 3 AM."</p>
+
+<p>For many people, this tax is the reason OpenClaw stays in their "cool, will try someday" list. We think that's a waste.</p>
+
+<h2>What Sebastian actually does</h2>
+
+<p>We paid the setup tax for you. <strong>That's it.</strong> That's the whole product.</p>
+
+<p>Sebastian is not a modified, stripped-down, or "simplified" version of OpenClaw. It's the full thing — skills, memory, MCP, voice, cron, heartbeats — running on infrastructure we maintain, with all API keys included, auto-updated, monitored 24/7.</p>
+
+<blockquote>You click Start in Telegram. Your AI is live. Everything else is our problem.</blockquote>
+
+<h2>Our principles</h2>
+
+<p><strong>Nothing stripped.</strong> Every OpenClaw feature works. We don't remove capabilities to upsell them later. Full instance, full power.</p>
+
+<p><strong>One price, no surprises.</strong> $49/month includes the AI model, hosting, voice, search, everything. No separate API billing, no usage meters, no "you exceeded your credits" emails.</p>
+
+<p><strong>Your AI, your data.</strong> Your SOUL.md, your memory, your conversations. We host the infrastructure, not own your content.</p>
+
+<p><strong>Always current.</strong> New OpenClaw version? Updated. New model? Upgraded. You don't manage releases — we do.</p>
+
+<p><strong>No lock-in.</strong> Want to move to self-hosting? Take your config, your memory files, your SOUL.md, and go. We make it easy to leave because we'd rather earn your stay.</p>
+
+<h2>Who this is for</h2>
+
+<p>Sebastian is for people who already want OpenClaw. Founders, creators, professionals who watched the demos and thought "I need this" — but whose next thought was "...but I don't want to manage a server."</p>
+
+<p><strong>We don't explain why AI is useful. You already know. We just remove every obstacle between you and a running instance.</strong></p>
+
+<div class="divider"></div>
+
+<div class="cta-block">
+  <h3>60 seconds. That's all it takes.</h3>
+  <p>Start your free trial. No credit card required.</p>
+  <a href="https://t.me/GetSebastianBot" class="btn">Start in Telegram →</a>
+</div>
+
+</article>
+
+<footer class="footer">
+  <p>© 2026 <a href="https://farol.io">Farol Labs</a>. Built with 🦀 and love.</p>
+</footer>
+
+</body>
+</html>
