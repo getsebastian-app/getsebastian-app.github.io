@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manifesto — Sebastian</title>
+  <meta name="description" content="Why we built Sebastian. For the OpenClaw community.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      background: #fff;
+      color: #111;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav (same as index) ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px clamp(20px, 4vw, 40px);
+    }
+
+    .nav-left span {
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-left a {
+      text-decoration: none;
+      color: #111;
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 20px;
+      flex-shrink: 0;
+    }
+
+    .nav-right a {
+      font-size: 13px;
+      font-weight: 500;
+      color: #999;
+      text-decoration: none;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+
+    .nav-right a:hover { color: #111; }
+
+    /* ── Article ── */
+    article {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    article h1 {
+      font-size: clamp(32px, 5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .lead {
+      font-size: 19px;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: #FF6B6B;
+      margin: 48px 0;
+    }
+
+    article h2 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-top: 48px;
+      margin-bottom: 16px;
+    }
+
+    article p {
+      font-size: 17px;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    article p strong {
+      color: #111;
+    }
+
+    .accent { color: #FF6B6B; }
+
+    article blockquote {
+      border-left: 3px solid #FF6B6B;
+      padding: 16px 24px;
+      margin: 32px 0;
+      font-size: 17px;
+      color: #111;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* ── CTA block ── */
+    .cta-block {
+      text-align: center;
+      margin-top: 56px;
+      padding: 40px 24px;
+      background: #fafafa;
+      border-radius: 16px;
+    }
+
+    .cta-block h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .cta-block p {
+      color: #999;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    .cta-block .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      font-family: inherit;
+      text-decoration: none;
+      background: #0088CC;
+      color: #fff;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .cta-block .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(0, 136, 204, 0.25);
+    }
+
+    .cta-block .btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #999;
+      border-top: 1px solid #E5E5E5;
+    }
+
+    footer a {
+      color: #999;
+      text-decoration: none;
+    }
+
+    footer a:hover { color: #111; }
+
+    /* ── Mobile ── */
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      article { padding: 40px 20px 64px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left">
+      <a href="./index.html"><span>Sebastian</span></a>
+    </div>
+    <div class="nav-right">
+      <a href="./index.html">Home</a>
+      <a href="https://farol.team">Farol Labs</a>
+    </div>
+  </nav>
+
+  <article>
+
+    <h1>We don't sell AI.<br>We remove <span class="accent">obstacles</span>.</h1>
+
+    <p class="lead">Sebastian exists for one reason: to give OpenClaw users the fastest path from "I want this" to "it's running."</p>
+
+    <div class="divider"></div>
+
+    <h2>You already get it</h2>
+
+    <p>You've seen the OpenClaw demos. You've read the docs. You know what a personal AI with skills, memory, and real-world actions can do. <strong>You don't need to be sold on the idea.</strong></p>
+
+    <p>What you need is for it to actually work. In your messenger. Today. Without spending a weekend on server setup, API keys, Docker configs, and debugging webhooks at 2 AM.</p>
+
+    <h2>The setup tax</h2>
+
+    <p>OpenClaw is remarkable software. But running it yourself means: rent a VPS, install Node, configure SSL, get API keys from Anthropic, Brave, Groq, ElevenLabs, set up a Telegram bot, wire webhooks, configure YAML, monitor uptime, handle updates.</p>
+
+    <p><strong>That's 4-8 hours if you know what you're doing.</strong> And a recurring tax of maintenance, debugging, and "why did it stop working at 3 AM."</p>
+
+    <p>For many people, this tax is the reason OpenClaw stays in their "cool, will try someday" list. We think that's a waste.</p>
+
+    <h2>What Sebastian actually does</h2>
+
+    <p>We paid the setup tax for you. <strong>That's it.</strong> That's the whole product.</p>
+
+    <p>Sebastian is not a modified, stripped-down, or "simplified" version of OpenClaw. It's the full thing — skills, memory, MCP, voice, cron, heartbeats — running on infrastructure we maintain, with all API keys included, auto-updated, monitored 24/7.</p>
+
+    <blockquote>You click Start in Telegram. Your AI is live. Everything else is our problem.</blockquote>
+
+    <h2>Our principles</h2>
+
+    <p><strong>Nothing stripped.</strong> Every OpenClaw feature works. We don't remove capabilities to upsell them later. Full instance, full power.</p>
+
+    <p><strong>One price, everything included.</strong> $49/month covers hosting, AI, voice, search — no separate API keys to manage, no setup fees.</p>
+
+    <p><strong>Your AI, your data.</strong> Your SOUL.md, your memory, your conversations. We host the infrastructure, not own your content.</p>
+
+    <p><strong>Always current.</strong> New OpenClaw version? Updated. New model? Upgraded. You don't manage releases — we do.</p>
+
+    <p><strong>No lock-in.</strong> Want to move to self-hosting? Take your config, your memory files, your SOUL.md, and go. We make it easy to leave because we'd rather earn your stay.</p>
+
+    <h2>Who this is for</h2>
+
+    <p>Sebastian is for people who already want OpenClaw. Founders, creators, professionals who watched the demos and thought "I need this" — but whose next thought was "...but I don't want to manage a server."</p>
+
+    <p><strong>We don't explain why AI is useful. You already know. We just remove every obstacle between you and a running instance.</strong></p>
+
+    <div class="divider"></div>
+
+    <div class="cta-block">
+      <h3>60 seconds. That's all it takes.</h3>
+      <p>Start your free trial. No credit card required.</p>
+      <a href="https://t.me/GetSebastianBot" class="btn">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.53 8.15l-1.83 8.63c-.14.62-.5.77-.99.48l-2.8-2.06-1.35 1.3c-.15.15-.28.28-.57.28l.2-2.85 5.18-4.68c.23-.2-.05-.31-.35-.12l-6.4 4.03-2.76-.86c-.6-.19-.61-.6.13-.89l10.78-4.15c.5-.18.93.12.76.89z"/></svg>
+        Try Free
+      </a>
+    </div>
+
+  </article>
+
+  <footer>
+    <p>&copy; 2026 <a href="https://farol.team">Farol Labs</a></p>
+  </footer>
+
+</body>
+</html>
