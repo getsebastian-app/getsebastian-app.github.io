@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Pipeline — Sebastian & Ori</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;line-height:1.7;background:#f8f9fa;padding:20px}
+.container{max-width:900px;margin:0 auto}
+h1{font-size:28px;font-weight:800;margin-bottom:8px;letter-spacing:-0.03em}
+h2{font-size:20px;font-weight:700;margin-top:40px;margin-bottom:16px;color:#FF6B6B}
+h3{font-size:16px;font-weight:700;margin-bottom:4px}
+p,li{font-size:14px;color:#444;margin-bottom:8px}
+.subtitle{color:#888;font-size:14px;margin-bottom:32px}
+.card{background:white;border-radius:14px;padding:20px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.06);border-left:4px solid #e5e7eb}
+.card.hot{border-left-color:#ef4444;background:#fef2f2}
+.card.warm{border-left-color:#f59e0b}
+.card.cold{border-left-color:#94a3b8}
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-left:6px}
+.badge.hot{background:#fecaca;color:#991b1b}
+.badge.warm{background:#fef3c7;color:#92400e}
+.badge.cold{background:#e2e8f0;color:#475569}
+.badge.sebastian{background:#dbeafe;color:#1e40af}
+.badge.ori{background:#f3e8ff;color:#6b21a8}
+.pitch{background:#f0fdf4;border-left:3px solid #22c55e;padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;margin-top:8px;color:#166534}
+.template{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px;font-size:13px;white-space:pre-wrap;font-family:'Inter',sans-serif;line-height:1.7}
+.scoring{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.scoring span{font-size:11px;background:#f1f5f9;padding:2px 6px;border-radius:4px;color:#64748b}
+.private{background:#fef2f2;border:1px dashed #fca5a5;border-radius:12px;padding:12px;margin-bottom:24px;font-size:13px;color:#991b1b}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+th{text-align:left;padding:8px 10px;background:#f1f5f9;font-weight:600;font-size:12px;color:#64748b}
+td{padding:8px 10px;border-bottom:1px solid #f1f5f9}
+.section-stats{display:flex;gap:16px;margin-bottom:24px}
+.stat{background:white;border-radius:12px;padding:16px;flex:1;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+.stat-num{font-size:28px;font-weight:800;color:#FF6B6B}
+.stat-label{font-size:12px;color:#888;margin-top:2px}
+hr{border:none;border-top:1px solid #e5e7eb;margin:32px 0}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>🎯 Sales Pipeline — Sebastian & Ori</h1>
+<p class="subtitle">20 leads · February 17, 2026 · Internal</p>
+<div class="private">🔒 Internal use only</div>
+
+<div class="section-stats">
+<div class="stat"><div class="stat-num">4</div><div class="stat-label">🔴 Hot leads</div></div>
+<div class="stat"><div class="stat-num">15</div><div class="stat-label">🟡 Warm leads</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">🔵 Competitor</div></div>
+<div class="stat"><div class="stat-num">20</div><div class="stat-label">Total</div></div>
+</div>
+
+<h2>Lead Scoring</h2>
+<table>
+<tr><th>Критерий</th><th>Баллы</th></tr>
+<tr><td>Жалуется на setup complexity OpenClaw</td><td>+30</td></tr>
+<tr><td>Solo founder / indie hacker</td><td>+20</td></tr>
+<tr><td>Уже пробовал OpenClaw</td><td>+20</td></tr>
+<tr><td>Платёжеспособность</td><td>+15</td></tr>
+<tr><td>Европа (Португалия, Германия)</td><td>+10</td></tr>
+<tr><td>Creator с аудиторией</td><td>+10</td></tr>
+<tr><td>Активен в соцсетях</td><td>+5</td></tr>
+</table>
+
+<!-- HOT LEADS -->
+<h2>🔴 Hot Leads — связаться в 24 часа</h2>
+
+<div class="card hot">
+<h3>#1 — "OpenClaw — Absolute Nightmare" <span class="badge hot">75</span> <span class="badge sebastian">Sebastian</span></h3>
+<p>Reddit r/ArtificialIntelligence · Потратил часы на Hetzner, pairing errors, Telegram setup</p>
+<div class="pitch">💬 "Видел твой пост про nightmare с OpenClaw setup. Мы сделали hosted версию — 60 секунд и OpenClaw работает в Telegram. $49/мес, zero config. Хочешь попробовать?"</div>
+</div>
+
+<div class="card hot">
+<h3>#2 — "$300 and 3 days" <span class="badge hot">70</span> <span class="badge sebastian">Sebastian</span></h3>
+<p>GitHub Discussion #4220 · Потратил $300 и 3 дня на Railway template, "potentially cool but actually shitty"</p>
+<div class="pitch">💬 "Ты уже потратил $300 пытаясь запустить OpenClaw. За $49/мес получишь hosted версию без единой строчки конфига. Работает через 60 секунд."</div>
+</div>
+
+<div class="card hot">
+<h3>#3 — YouTube "It took me forever to setup" <span class="badge hot">70</span> <span class="badge sebastian">Sebastian</span> <span class="badge ori">Ori</span></h3>
+<p>27K views · Content creator, разобрался с OpenClaw сам. Его аудитория = наши клиенты</p>
+<div class="pitch">💬 "Твоё видео набрало 27K. Значит, тысячи людей мучаются с setup. Мы сделали hosted версию за $49/мес. Хочешь review copy + affiliate deal?"</div>
+</div>
+
+<div class="card hot">
+<h3>#7 — digitalknk (Power User) <span class="badge hot">70</span> <span class="badge ori">Ori</span></h3>
+<p>GitHub Gist "Running OpenClaw Without Burning Money" · Явно понимает OpenClaw глубже большинства</p>
+<div class="pitch">💬 "Ori — следующий шаг: AI co-founder с памятью, personality и execution. Не просто ассистент — партнёр который помнит контекст твоего бизнеса."</div>
+</div>
+
+<!-- WARM LEADS -->
+<h2>🟡 Warm Leads — связаться в первую неделю</h2>
+
+<div class="card warm">
+<h3>#4 — OpenClaw dissatisfaction (Slack assistant) <span class="badge warm">55</span> <span class="badge sebastian">Sebastian</span></h3>
+<p>Reddit r/AI_Agents · Использует OpenClaw как Slack knowledge base, жалуется на rate limits</p>
+</div>
+
+<div class="card warm">
+<h3>#5 — No-code launcher для OpenClaw <span class="badge warm">55</span> <span class="badge sebastian">Partnership</span></h3>
+<p>Reddit r/SideProject · Строит конкурента/аналог. Валидирует рынок. Потенциальный партнёр</p>
+</div>
+
+<div class="card warm">
+<h3>#6 — PM "gave up after 20 minutes" <span class="badge warm">50</span> <span class="badge sebastian">Sebastian</span></h3>
+<p>Reddit r/AI_Agents · Non-technical, идеальный профиль Sebastian</p>
+</div>
+
+<div class="card warm">
+<h3>#8 — Matt Shumer, CEO HyperWrite <span class="badge warm">60</span> <span class="badge ori">Ori</span></h3>
+<p>AI browser agent founder · Twitter @mattshumer_ · Нужен AI co-pilot для операционки</p>
+</div>
+
+<div class="card warm">
+<h3>#9 — Solo founder, approve/reject workflow <span class="badge warm">55</span> <span class="badge ori">Ori</span></h3>
+<p>Reddit r/Entrepreneur · Ищет exactly what Ori does — AI с execution и human-in-the-loop</p>
+</div>
+
+<div class="card warm">
+<h3>#10 — Tanay Jaipuria, CEO Wispr Flow <span class="badge warm">50</span> <span class="badge ori">Ori</span></h3>
+<p>#1 Product Hunt 2025 · Быстрорастущий стартап, нужна операционная помощь</p>
+</div>
+
+<div class="card warm">
+<h3>#11 — Shane Collins, tech writer <span class="badge warm">50</span> <span class="badge sebastian">Sebastian</span> <span class="badge ori">Ori</span></h3>
+<p>Medium "Stop Watching OpenClaw Install Tutorials" · Power user</p>
+</div>
+
+<div class="card warm">
+<h3>#12 — Nader Dabit (dabit3) <span class="badge warm">50</span> <span class="badge sebastian">Affiliate</span></h3>
+<p>Developer advocate, content creator, web3/AI · Большая аудитория</p>
+</div>
+
+<div class="card warm">
+<h3>#13 — yalexx (Setup Guide author) <span class="badge warm">45</span> <span class="badge sebastian">Sebastian</span></h3>
+<p>GitHub Gist — подробный installation guide</p>
+</div>
+
+<div class="card warm">
+<h3>#14 — Hetzner + OpenClaw users <span class="badge warm">45</span> <span class="badge sebastian">Sebastian</span></h3>
+<p>Reddit r/selfhosted · Европейцы, уже платят за VPS + API keys</p>
+</div>
+
+<div class="card warm">
+<h3>#15 — Lisbon solo founders <span class="badge warm">45</span> <span class="badge ori">Ori</span></h3>
+<p>Startup Lisboa / Fábrica de Startups · Португалия = наш фокус-регион</p>
+</div>
+
+<div class="card warm">
+<h3>#16 — Berlin indie makers <span class="badge warm">45</span> <span class="badge ori">Ori</span></h3>
+<p>Berlin startup community · Ценят автоматизацию и efficiency</p>
+</div>
+
+<div class="card warm">
+<h3>#17 — Small marketing agencies <span class="badge warm">50</span> <span class="badge sebastian">Sebastian</span></h3>
+<p>Ищут AI automation для клиентских кампаний</p>
+</div>
+
+<div class="card warm">
+<h3>#18 — Freelance dev agencies (1-5 чел) <span class="badge warm">45</span> <span class="badge sebastian">Sebastian</span></h3>
+<p>Reddit r/SideProject, Indie Hackers</p>
+</div>
+
+<div class="card warm">
+<h3>#19 — Slack knowledge assistant user <span class="badge warm">50</span> <span class="badge sebastian">Sebastian</span></h3>
+<p>Reddit r/AI_Agents · Уже нашёл value, борется с infra</p>
+</div>
+
+<!-- COMPETITOR -->
+<h2>🔵 Competitor Intelligence</h2>
+
+<div class="card cold">
+<h3>#20 — OpenClawd.ai <span class="badge cold">Watch</span></h3>
+<p>Launched Feb 9, 2026 · Прямой конкурент — managed OpenClaw hosting</p>
+<p><strong>Action:</strong> Изучить pricing, features, weak spots. Их dissatisfied users = наши leads</p>
+</div>
+
+<!-- OUTREACH TEMPLATES -->
+<h2>📧 Outreach Templates</h2>
+
+<div class="card">
+<h3>Email (персонализируемый)</h3>
+<div class="template">Subject: {pain_point} — solved in 60 seconds
+
+Hi {name},
+
+I saw your {post/comment/tweet} about {specific_pain_point}.
+
+{1-2 sentences acknowledging their specific situation}
+
+We built Sebastian specifically for this:
+→ Hosted OpenClaw in Telegram. No server, no Docker, no config.
+→ 60 seconds from signup to working AI assistant.
+→ $49/mo all-inclusive (hosting + API + support).
+
+Want to try it? Free 7-day trial, no credit card.
+
+Best,
+{sender_name}
+getsebastian.app</div>
+</div>
+
+<div class="card">
+<h3>DM (Twitter/Reddit, короткий)</h3>
+<div class="template">Hey {name}! Saw your {post about X}.
+
+We made hosted OpenClaw — no setup, works in Telegram in 60 sec. $49/mo all-inclusive.
+
+Happy to give you a free trial if interested 🙌</div>
+</div>
+
+<!-- NEXT STEPS -->
+<h2>⚡ Next Steps</h2>
+<div class="card">
+<ol>
+<li><strong>Сегодня:</strong> Написать Hot leads (1-3, 7) — персонализированные DM</li>
+<li><strong>Эта неделя:</strong> Обработать Warm leads с наивысшим score</li>
+<li><strong>Ongoing:</strong> Мониторить r/AI_Agents, r/selfhosted, GitHub discussions</li>
+<li><strong>Автоматизация:</strong> Alerts на "openclaw setup", "openclaw nightmare", "need AI assistant"</li>
+<li><strong>Конкурент:</strong> Изучить OpenClawd.ai — pricing, features, weak spots</li>
+</ol>
+</div>
+
+<hr>
+<p style="text-align:center;color:#aaa;font-size:12px">Internal · Farol Labs · Feb 17, 2026</p>
+</div>
+</body>
+</html>
