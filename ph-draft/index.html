@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sebastian — Product Hunt Launch Draft</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;color:#1a1a2e;line-height:1.7;background:#f8f9fa;padding:20px}
+.container{max-width:800px;margin:0 auto}
+h1{font-size:32px;font-weight:800;margin-bottom:8px;letter-spacing:-0.03em}
+h2{font-size:22px;font-weight:700;margin-top:48px;margin-bottom:16px;color:#FF6B6B;letter-spacing:-0.02em}
+h3{font-size:17px;font-weight:700;margin-top:24px;margin-bottom:8px}
+p,li{font-size:15px;color:#444;margin-bottom:12px}
+.subtitle{color:#888;font-size:15px;margin-bottom:40px}
+.card{background:white;border-radius:16px;padding:28px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+.tag{display:inline-block;background:#FF6B6B;color:white;font-size:12px;font-weight:600;padding:3px 10px;border-radius:6px;margin-right:6px;margin-bottom:6px}
+.recommended{background:#e8faf0;border-left:3px solid #22c55e;padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0;font-size:14px}
+.recommended strong{color:#16a34a}
+blockquote{border-left:3px solid #FF6B6B;padding:16px 20px;margin:16px 0;background:#fff5f5;border-radius:0 8px 8px 0;font-size:14px;line-height:1.8}
+blockquote p{color:#333;margin-bottom:8px}
+code{background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:13px;color:#e11d48}
+ul{padding-left:24px}
+li{margin-bottom:6px}
+.checklist li{list-style:none;position:relative;padding-left:4px}
+.checklist li::before{content:"☐";position:absolute;left:-20px}
+.warn{background:#fff7ed;border-left:3px solid #f97316;padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0;font-size:14px}
+.warn strong{color:#ea580c}
+.badge{display:inline-block;background:#f1f5f9;color:#64748b;font-size:12px;padding:2px 8px;border-radius:4px;margin-left:8px}
+hr{border:none;border-top:1px solid #e5e7eb;margin:32px 0}
+.private{background:#fef2f2;border:1px dashed #fca5a5;border-radius:12px;padding:16px;margin-top:16px;font-size:13px;color:#991b1b}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>🚀 Sebastian — Product Hunt Launch Draft</h1>
+<p class="subtitle">getsebastian.app · @GetSebastianBot · Farol Labs</p>
+
+<div class="private">🔒 Эта страница только для внутреннего использования. Не индексируется, но доступна по прямой ссылке.</div>
+
+<!-- TAGLINE -->
+<h2>1. Tagline <span class="badge">max 60 chars</span></h2>
+<div class="card">
+<p><strong>A:</strong> <code>Full AI assistant running in 60 seconds. No server.</code> <span class="badge">51 chars</span></p>
+<p><strong>B:</strong> <code>OpenClaw hosted. Click Start → AI works.</code> <span class="badge">41 chars</span></p>
+<p><strong>C:</strong> <code>Your AI assistant. We handle the servers.</code> <span class="badge">41 chars</span></p>
+<div class="recommended"><strong>✅ Recommended: A</strong> — specific, concrete number (60 seconds), communicates core value without jargon.</div>
+</div>
+
+<!-- DESCRIPTION -->
+<h2>2. Description <span class="badge">max 260 chars</span></h2>
+<div class="card">
+<h3>Option A</h3>
+<p>Sebastian is hosted OpenClaw — a personal AI with skills, memory, voice, and real-world actions. Everything configured, all API keys included. Click Start in Telegram, your AI is live in 60 seconds. $49/mo. No server management. Free trial, no credit card.</p>
+
+<h3>Option B</h3>
+<p>Stop spending weekends on server setup. Sebastian runs the full OpenClaw stack — skills, memory, voice, cron, MCP — with all API keys included. Click Start in Telegram. AI working in 60 seconds. $49/mo, free trial, no credit card required.</p>
+<div class="recommended"><strong>✅ Recommended: B</strong> — leads with the pain point, resonates more on PH.</div>
+</div>
+
+<!-- MAKER'S COMMENT -->
+<h2>3. Maker's First Comment</h2>
+<div class="card">
+<blockquote>
+<p>Hey Product Hunt 👋</p>
+<p>We're Leonid and Ori from Farol Labs. We built Sebastian because we kept seeing the same thing happen:</p>
+<p>Someone discovers OpenClaw — the open-source personal AI that actually does things (skills, memory, voice, cron jobs, real-world actions via MCP). They get excited. They read the docs. They think "I need this."</p>
+<p>Then they see the setup: rent a VPS, install Node, configure SSL, get API keys from Anthropic, Brave, Groq, ElevenLabs, set up a Telegram bot, wire webhooks, configure YAML, monitor uptime, handle updates. That's 4-8 hours if you know what you're doing.</p>
+<p>For most people, OpenClaw stays in the "cool, will try someday" list. We think that's a waste.</p>
+<p><strong>So we paid the setup tax for you.</strong> That's the whole product.</p>
+<p>Sebastian is not a stripped-down or "simplified" version. It's the full OpenClaw — every feature, every capability:</p>
+<p>🧠 <strong>Memory</strong> — persistent across sessions, it actually remembers you<br>
+🛠 <strong>Skills</strong> — extensible actions (web search, calendar, email, custom)<br>
+🎙 <strong>Voice</strong> — speech-to-text and text-to-speech built in<br>
+⏰ <strong>Cron & Heartbeats</strong> — proactive, checks things on schedule<br>
+🔌 <strong>MCP</strong> — Model Context Protocol for tool integration<br>
+🔄 <strong>Auto-updates</strong> — new OpenClaw version? Already deployed<br>
+📊 <strong>24/7 monitoring</strong> — if something breaks, we fix it before you notice</p>
+<p>All API keys included in the price. No "bring your own Anthropic key." No "configure your Brave Search token." It just works.</p>
+<p><strong>$49/month. Free 7-day trial. No credit card.</strong></p>
+<p>Click Start in @GetSebastianBot on Telegram → your AI is live in 60 seconds.</p>
+<p>No lock-in either. Want to self-host later? Export your SOUL.md, memory, config, and go. We'd rather earn your stay than trap you.</p>
+<p>We built this for founders, creators, and professionals who want the power of a personal AI agent but don't want to become sysadmins.</p>
+<p>Would love your feedback. Happy to answer any questions here.</p>
+<p>— Leonid & Ori</p>
+</blockquote>
+</div>
+
+<!-- TOPICS -->
+<h2>4. Topics / Tags</h2>
+<div class="card">
+<span class="tag">Artificial Intelligence</span>
+<span class="tag">Productivity</span>
+<span class="tag">SaaS</span>
+<span class="tag">Messaging</span>
+<span class="tag">Developer Tools</span>
+<span class="tag">AI Agents</span>
+</div>
+
+<!-- VISUALS -->
+<h2>5. Screenshots / Visuals (5 gallery items)</h2>
+
+<div class="card">
+<h3>Visual 1: "60 Seconds" Hero</h3>
+<p>Split-screen. Left: clock/timer showing "60 sec." Right: Telegram chat with Sebastian responding. Clean, white background.</p>
+<p><strong>Text overlay:</strong> "Click Start → AI running in 60 seconds"</p>
+</div>
+
+<div class="card" style="background:#fff5f5">
+<h3>Visual 2: "The Setup Tax" Comparison ⭐ Money shot</h3>
+<p>Two columns. Left: "Self-hosting OpenClaw" — long checklist (VPS, Node, SSL, API keys, webhooks, YAML, monitoring...) "4-8 hours." Right: "Sebastian" — single item: "Click Start" ✓ "60 seconds."</p>
+</div>
+
+<div class="card">
+<h3>Visual 3: Feature Stack</h3>
+<p>Clean grid/cards: Memory, Skills, Voice, Cron/Heartbeats, MCP, Auto-updates. Each with icon + one-line description.</p>
+<p><strong>Text overlay:</strong> "Full OpenClaw. Nothing stripped."</p>
+</div>
+
+<div class="card">
+<h3>Visual 4: Real Conversation Screenshot</h3>
+<p>Actual Telegram conversation — Sebastian remembering context, executing a search, setting a reminder. Must feel real, not staged.</p>
+</div>
+
+<div class="card">
+<h3>Visual 5: Pricing / No Lock-in</h3>
+<p>Simple pricing card: "$49/mo — everything included." Bullets: all API keys, free trial, no credit card, export anytime.</p>
+<p><strong>Text overlay:</strong> "Your AI, your data. Leave anytime."</p>
+</div>
+
+<div class="card">
+<h3>🎥 Bonus: Demo Video (30-45 sec)</h3>
+<p><strong>Strongly recommended.</strong> Screen recording: open Telegram → start @GetSebastianBot → watch it come alive → ask something → it responds with context. No voiceover, just captions. Fast-paced.</p>
+</div>
+
+<!-- LAUNCH CHECKLIST -->
+<h2>6. Launch Day Checklist</h2>
+
+<div class="card">
+<h3>Pre-Launch (1-3 weeks before)</h3>
+<ul class="checklist">
+<li>Set up PH teaser page, collect followers</li>
+<li>Prepare all visuals and upload to PH draft</li>
+<li>Record demo video (30-45 sec)</li>
+<li>Write and finalize maker's comment</li>
+<li>Build launch supporter list (friends, community, OpenClaw users, Twitter)</li>
+<li>Draft tweets, Telegram posts, LinkedIn posts</li>
+<li>Prepare "launch kit" link with assets for supporters</li>
+<li>Consider finding a PH Hunter with large following</li>
+<li>Complete PH maker profiles (real photos)</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Launch Day (PH resets 00:01 PT / 08:01 UTC)</h3>
+
+<p><strong>07:30 UTC</strong> — Final check: visuals uploaded, description finalized, comment ready</p>
+<p><strong>08:01 UTC</strong> — Launch live! Post maker's first comment immediately. Upvote own product.</p>
+<p><strong>08:05-08:30</strong> — Personal messages to supporter list + Twitter + Telegram + LinkedIn</p>
+<p><strong>09:00-12:00</strong> — ⚡ <strong>CRITICAL 4 HOURS</strong> — respond to EVERY comment within 15 min. Monitor ranking. Second wave outreach if needed.</p>
+<p><strong>12:00-18:00</strong> — Continue responding. Share progress on Twitter. Engage with other launches.</p>
+<p><strong>18:00-24:00</strong> — Third wave (US West Coast). "Thank you" update on Twitter.</p>
+</div>
+
+<div class="card">
+<h3>Post-Launch (2-3 days)</h3>
+<ul class="checklist">
+<li>Continue engaging with PH comments</li>
+<li>Write "lessons learned" post if #1</li>
+<li>Follow up with everyone who supported</li>
+</ul>
+</div>
+
+<div class="warn">
+<strong>⚠️ DO NOT:</strong> Ask for upvotes in exchange for anything · Use fake accounts · Send mass generic DMs · Post in unrelated communities · Stop engaging after first hours
+</div>
+
+<!-- THUMBNAIL -->
+<h2>7. Thumbnail</h2>
+<div class="card">
+<h3>Concept A (Recommended): Mascot</h3>
+<p>Sebastian mascot emerging from a Telegram chat bubble, subtle server rack fading away. Clean, white background, brand red accent.</p>
+
+<h3>Concept B: Visual metaphor</h3>
+<p>Terminal/server setup with big red ✗ → next to it a Telegram window with green ✓. Communicates "no server needed" instantly.</p>
+</div>
+
+<!-- STRATEGY -->
+<h2>📝 Strategy Notes</h2>
+<div class="card">
+<h3>Timing</h3>
+<p><strong>Best days:</strong> Tuesday, Wednesday, Thursday (most traffic). <strong>Avoid:</strong> Monday (slow), Friday-Sunday (low traffic).</p>
+
+<h3>Key Differentiators</h3>
+<ul>
+<li><strong>60 seconds to working AI</strong> — this is the hook</li>
+<li><strong>Full OpenClaw, nothing stripped</strong> — not a "lite" version</li>
+<li><strong>All API keys included</strong> — surprisingly rare, real pain point</li>
+<li><strong>No lock-in</strong> — builds trust with technical PH audience</li>
+<li><strong>$49/mo flat</strong> — simple, no per-seat confusion</li>
+</ul>
+
+<h3>vs SimpleClaw (if asked)</h3>
+<p>Don't attack. Say: "SimpleClaw offers empty hosting — you bring your own everything. Sebastian is the opposite: everything included, configured, and running. Different approaches for different needs."</p>
+</div>
+
+<hr>
+<p style="text-align:center;color:#aaa;font-size:13px;margin-top:24px">Internal draft · Farol Labs · February 17, 2026</p>
+
+</div>
+</body>
+</html>
