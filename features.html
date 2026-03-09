@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sebastian — How It Works</title>
+  <meta name="description" content="Sebastian gives you a full OpenClaw AI assistant in Telegram. Skills, memory, voice, web search — all pre-configured and running in one minute.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      background: #fff;
+      color: #111;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px clamp(20px, 4vw, 40px);
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 50;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav-left { display: flex; align-items: center; gap: 8px; }
+    .nav-left a { font-weight: 700; font-size: 17px; letter-spacing: -0.02em; text-decoration: none; color: #111; }
+    .nav-right { display: flex; gap: 20px; align-items: center; }
+    .nav-right a { font-size: 13px; font-weight: 500; color: #999; text-decoration: none; transition: color 0.15s; }
+    .nav-right a:hover { color: #111; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; background: #0088CC; color: #fff !important;
+      border-radius: 8px; font-size: 13px; font-weight: 600;
+      text-decoration: none; transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,136,204,0.25); color: #fff !important; }
+
+    /* ── Sections ── */
+    section { padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 60px); }
+    .container { max-width: 960px; margin: 0 auto; }
+
+    /* ── Hero ── */
+    .hero-section {
+      text-align: center;
+      padding-top: clamp(80px, 12vw, 140px);
+      padding-bottom: clamp(60px, 10vw, 100px);
+      background: radial-gradient(ellipse 700px 500px at 50% 30%, rgba(0,136,204,0.04) 0%, transparent 100%);
+    }
+    .badge {
+      display: inline-block; font-size: 12px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: #0088CC; background: rgba(0,136,204,0.08);
+      padding: 6px 14px; border-radius: 99px; margin-bottom: 20px;
+    }
+    .hero-section h1 {
+      font-size: clamp(36px, 5vw, 56px); font-weight: 800;
+      letter-spacing: -0.035em; line-height: 1.1; margin-bottom: 20px;
+    }
+    .hero-section p {
+      font-size: clamp(17px, 2vw, 20px); color: #555;
+      line-height: 1.65; max-width: 640px; margin: 0 auto 32px;
+    }
+
+    /* ── Steps ── */
+    .steps-section { background: #fafafa; }
+    .section-label {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: #0088CC; margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 40px); font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 48px;
+    }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+    .step {
+      background: #fff; border-radius: 16px; padding: 32px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .step:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 10px;
+      background: rgba(0,136,204,0.1); color: #0088CC;
+      font-weight: 800; font-size: 16px; margin-bottom: 16px;
+    }
+    .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .step p { font-size: 15px; color: #666; line-height: 1.55; }
+
+    /* ── Features ── */
+    .features-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .feature {
+      padding: 28px; border: 1px solid #eee; border-radius: 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .feature:hover { border-color: #ddd; box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
+    .feature-icon { font-size: 28px; margin-bottom: 14px; }
+    .feature h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; }
+    .feature p { font-size: 14px; color: #666; line-height: 1.55; }
+
+    /* ── Security ── */
+    .security-section { background: #111; color: #fff; }
+    .security-section .section-label { color: #4dd0e1; }
+    .security-section .section-title { color: #fff; }
+    .security-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .sec-card {
+      padding: 28px; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; background: rgba(255,255,255,0.04);
+    }
+    .sec-icon { font-size: 24px; margin-bottom: 12px; }
+    .sec-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; color: #fff; }
+    .sec-card p { font-size: 14px; color: #aaa; line-height: 1.55; }
+
+    /* ── Why ── */
+    .why-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px; margin-top: 48px;
+    }
+    .why-item { text-align: center; padding: 24px; }
+    .why-item .big { font-size: clamp(36px, 5vw, 48px); font-weight: 800; color: #0088CC; letter-spacing: -0.03em; }
+    .why-item h3 { font-size: 17px; font-weight: 700; margin: 8px 0 6px; }
+    .why-item p { font-size: 14px; color: #666; line-height: 1.5; }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(180deg, #fff 0%, #f0f9ff 100%);
+    }
+    .cta-section h2 {
+      font-size: clamp(28px, 4vw, 42px); font-weight: 800;
+      letter-spacing: -0.03em; margin-bottom: 16px;
+    }
+    .cta-section p {
+      font-size: 18px; color: #555; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto;
+    }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 32px; background: #0088CC; color: #fff;
+      border-radius: 12px; font-size: 16px; font-weight: 700;
+      text-decoration: none; transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,136,204,0.3); }
+    .cta-btn svg { width: 20px; height: 20px; }
+    .cta-note { font-size: 14px; color: #999; margin-top: 16px; font-weight: 500; }
+    .accent-bold { color: #FF6B6B; font-weight: 600; }
+
+    /* ── Footer ── */
+    footer {
+      padding: 32px clamp(20px, 5vw, 60px);
+      border-top: 1px solid #eee; text-align: center;
+      font-size: 13px; color: #999;
+    }
+    footer a { color: #666; text-decoration: none; }
+    footer a:hover { color: #111; }
+
+    /* ── Mobile ── */
+    @media (max-width: 640px) {
+      .steps-grid, .features-grid, .security-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left">
+      <a href="./">Sebastian</a>
+    </div>
+    <div class="nav-right">
+      <a href="./manifesto.html">Manifesto</a>
+      <a href="https://farol.team">Farol Labs</a>
+      <a href="https://t.me/GetSebastianBot" class="nav-cta">
+        <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.53 8.15l-1.83 8.63c-.14.62-.5.77-.99.48l-2.8-2.06-1.35 1.3c-.15.15-.28.28-.57.28l.2-2.85 5.18-4.68c.23-.2-.05-.31-.35-.12l-6.4 4.03-2.76-.86c-.6-.19-.61-.6.13-.89l10.78-4.15c.5-.18.93.12.76.89z"/></svg>
+        Try Free
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="container">
+      <span class="badge">Powered by OpenClaw</span>
+      <h1>Your AI assistant.<br>Already running.</h1>
+      <p>Sebastian is a fully configured AI assistant that lives in your Telegram. Skills, memory, voice, web search, code execution — everything works out of the box. Start a conversation and get things done.</p>
+      <a href="https://t.me/GetSebastianBot" class="cta-btn">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.53 8.15l-1.83 8.63c-.14.62-.5.77-.99.48l-2.8-2.06-1.35 1.3c-.15.15-.28.28-.57.28l.2-2.85 5.18-4.68c.23-.2-.05-.31-.35-.12l-6.4 4.03-2.76-.86c-.6-.19-.61-.6.13-.89l10.78-4.15c.5-.18.93.12.76.89z"/></svg>
+        Start in Telegram
+      </a>
+      <div class="cta-note">No credit card · <span class="accent-bold">7 days free</span> · then $49/mo</div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="steps-section">
+    <div class="container">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Up and running in 60 seconds</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Open Telegram</h3>
+          <p>Find <strong>@GetSebastianBot</strong> and hit Start. That's the entire setup. No API keys, no server configuration, no technical knowledge required.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Tell it about yourself</h3>
+          <p>Sebastian asks a few questions to understand your work, goals, and preferences. It builds a personalized profile and remembers everything.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Start working together</h3>
+          <p>Research, write, analyze, code, browse the web, manage files — Sebastian does it all. Send voice messages, share images. It works the way you work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section>
+    <div class="container">
+      <div class="section-label">What's Included</div>
+      <h2 class="section-title">Not just a chatbot.<br>An AI with hands.</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🧠</div>
+          <h3>Persistent memory</h3>
+          <p>Sebastian remembers your conversations, preferences, and decisions across sessions. No more repeating context every time.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🎤</div>
+          <h3>Voice in, voice out</h3>
+          <p>Send voice messages and get voice responses. Natural conversation, no typing required. Supports multiple languages.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🌐</div>
+          <h3>Web search & browsing</h3>
+          <p>Real-time web search and full page reading. Sebastian finds, reads, and summarizes information from the internet.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💻</div>
+          <h3>Code execution</h3>
+          <p>Runs Python, JavaScript, shell commands in a secure sandbox. Creates files, processes data, generates reports.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔧</div>
+          <h3>20+ built-in skills</h3>
+          <p>GitHub, Google Workspace, design, weather, health checks — pre-installed and ready. Install more from the skill marketplace.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📄</div>
+          <h3>Document analysis</h3>
+          <p>Send PDFs, images, spreadsheets. Sebastian reads, extracts data, and answers questions about your documents.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⏰</div>
+          <h3>Scheduled tasks</h3>
+          <p>Set reminders, recurring checks, automated reports. Sebastian works even when you're not looking.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔗</div>
+          <h3>API & integrations</h3>
+          <p>Connect to any service via MCP protocol. Your own tools, your own workflows. Extensible by design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECURITY -->
+  <section class="security-section">
+    <div class="container">
+      <div class="section-label">Security & Privacy</div>
+      <h2 class="section-title">Your data stays yours</h2>
+      <div class="security-grid">
+        <div class="sec-card">
+          <div class="sec-icon">🔒</div>
+          <h3>Isolated environment</h3>
+          <p>Every user gets a dedicated container. Your data, files, and conversations are completely separated from other users.</p>
+        </div>
+        <div class="sec-card">
+          <div class="sec-icon">🛡️</div>
+          <h3>Sandboxed execution</h3>
+          <p>Code runs in a secure sandbox with strict resource limits. No access to other users' data or the host system.</p>
+        </div>
+        <div class="sec-card">
+          <div class="sec-icon">🏗️</div>
+          <h3>SOC2-certified infrastructure</h3>
+          <p>Hosted on Fly.io with SOC2 Type 2 certification. Enterprise-grade reliability across multiple regions.</p>
+        </div>
+        <div class="sec-card">
+          <div class="sec-icon">🚫</div>
+          <h3>No training on your data</h3>
+          <p>Your conversations are never used to train AI models. Your business context remains confidential.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SEBASTIAN -->
+  <section>
+    <div class="container">
+      <div class="section-label">Why Sebastian</div>
+      <h2 class="section-title">What makes it different</h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="big">60s</div>
+          <h3>Setup time</h3>
+          <p>No servers, no configs, no devops. Open Telegram, press Start, done.</p>
+        </div>
+        <div class="why-item">
+          <div class="big">24/7</div>
+          <h3>Always on</h3>
+          <p>Sebastian runs on our infrastructure. It's available whenever you need it.</p>
+        </div>
+        <div class="why-item">
+          <div class="big">$49</div>
+          <h3>Per month</h3>
+          <p>Full OpenClaw with all features. No per-message limits, no hidden costs.</p>
+        </div>
+        <div class="why-item">
+          <div class="big">100%</div>
+          <h3>Pre-configured</h3>
+          <p>Skills, memory, voice, search, code — all working from day one. Zero setup.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to start?</h2>
+      <p>Try Sebastian free for 7 days. No credit card, no commitment. Just open Telegram and go.</p>
+      <a href="https://t.me/GetSebastianBot" class="cta-btn">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.53 8.15l-1.83 8.63c-.14.62-.5.77-.99.48l-2.8-2.06-1.35 1.3c-.15.15-.28.28-.57.28l.2-2.85 5.18-4.68c.23-.2-.05-.31-.35-.12l-6.4 4.03-2.76-.86c-.6-.19-.61-.6.13-.89l10.78-4.15c.5-.18.93.12.76.89z"/></svg>
+        Start in Telegram — It's Free
+      </a>
+      <div class="cta-note">No credit card · <span class="accent-bold">7 days free</span> · then $49/mo</div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="./">Sebastian</a> · <a href="./manifesto.html">Manifesto</a> · <a href="https://farol.team">Farol Labs</a> · <a href="mailto:ori@agentmail.to">Contact</a>
+    <br><br>
+    © 2026 Farol Labs. Built with ❤️ and OpenClaw.
+  </footer>
+
+</body>
+</html>
