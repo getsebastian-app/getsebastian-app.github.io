@@ -1,314 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sebastian — OpenClaw in Your Messenger. One Minute.</title>
-<meta name="description" content="OpenClaw in your Telegram or WhatsApp in one minute. Everything included. No code, no server, no setup.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦀</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --coral:#FF6B6B;--coral-dark:#E55555;--coral-light:#FFF5F3;
-  --orange:#FF8E53;--tg:#0088CC;--wa:#25D366;
-  --dark:#0F172A;--gray:#64748B;--light:#F8FAFC;--white:#FFF;--border:#E2E8F0;
-  --gradient:linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
-}
-body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--dark);line-height:1.6;background:var(--white);-webkit-font-smoothing:antialiased}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sebastian — AI That Actually Does Things</title>
+  <meta name="description" content="An AI assistant in Telegram that remembers you, browses the web, runs code, and gets work done. Not just a chatbot.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* NAV */
-.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
-.nav-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      background: #fff;
+      color: #111;
+      -webkit-font-smoothing: antialiased;
+    }
 
-.nav-logo-text{font-weight:800;font-size:20px;color:var(--dark);letter-spacing:-0.02em}
-.nav-cta{background:var(--coral);color:white;padding:10px 24px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px;transition:all 0.2s}
-.nav-cta:hover{opacity:0.9;transform:translateY(-1px)}
+    /* ── Nav ── */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px clamp(20px, 4vw, 40px);
+    }
+    .nav-left { display: flex; align-items: center; gap: 8px; }
+    .nav-left span { font-weight: 700; font-size: 17px; letter-spacing: -0.02em; }
+    .nav-right { display: flex; gap: 20px; align-items: center; }
+    .nav-right a { font-size: 13px; font-weight: 500; color: #999; text-decoration: none; }
+    .nav-right a:hover { color: #111; }
 
-/* HERO */
-.hero{max-width:1080px;margin:0 auto;padding:80px 24px 60px;text-align:center}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--coral-light);color:var(--coral-dark);padding:6px 16px;border-radius:100px;font-size:13px;font-weight:600;margin-bottom:24px}
-.hero h1{font-size:clamp(32px,5.5vw,56px);font-weight:900;line-height:1.1;letter-spacing:-0.03em;margin-bottom:20px;color:var(--dark)}
-.hero h1 em{font-style:normal;color:var(--coral)}
-.hero p{font-size:18px;color:var(--gray);max-width:540px;margin:0 auto 36px;line-height:1.7}
-.hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;font-weight:600;font-size:16px;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer}
-.btn-tg{background:var(--tg);color:white}
-.btn-wa{background:var(--wa);color:white}
-.btn-inactive{background:var(--light);color:var(--gray);border:1px solid var(--border);cursor:default;pointer-events:none}
-.btn:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.12)}
-.btn-inactive:hover{filter:none;transform:none;box-shadow:none}
+    /* ── Hero ── */
+    .hero {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: clamp(48px, 8vw, 80px) 24px clamp(40px, 6vw, 60px);
+    }
 
-/* TRUST BAR */
-.trust{text-align:center;padding:40px 24px;color:var(--gray);font-size:14px;font-weight:500}
-.trust-logos{display:flex;align-items:center;justify-content:center;gap:32px;margin-top:12px;opacity:0.5}
-.trust-logos span{font-size:13px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--gray)}
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 56px); font-weight: 900;
+      letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 16px;
+      max-width: 700px;
+    }
 
-/* HANDS */
-.hands{max-width:1080px;margin:0 auto;padding:80px 24px}
-.section-label{display:inline-block;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--coral);margin-bottom:12px}
-.hands h2{font-size:clamp(24px,4vw,40px);font-weight:800;margin-bottom:8px;letter-spacing:-0.02em}
-.hands .sub{color:var(--gray);font-size:16px;margin-bottom:48px}
-.hands-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.hand{padding:32px 24px;border-radius:16px;border:1px solid var(--border);transition:all 0.2s;background:var(--white)}
-.hand:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.06);border-color:transparent}
-.hand-icon{width:48px;height:48px;border-radius:12px;background:var(--coral-light);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px}
-.hand h3{font-size:16px;font-weight:700;margin-bottom:8px}
-.hand p{font-size:14px;color:var(--gray);line-height:1.6}
+    .hero .sub {
+      font-size: clamp(16px, 2vw, 20px); color: #555; line-height: 1.6;
+      max-width: 520px; margin-bottom: 32px; letter-spacing: -0.01em;
+    }
 
-/* INCLUDED */
-.included{background:var(--light);padding:80px 24px}
-.included-inner{max-width:1080px;margin:0 auto;text-align:center}
-.included h2{font-size:clamp(24px,4vw,40px);font-weight:800;margin-bottom:12px;letter-spacing:-0.02em}
-.included .sub{color:var(--gray);font-size:16px;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto}
-.checks{display:flex;flex-wrap:wrap;justify-content:center;gap:16px 32px;font-size:15px}
-.checks span{display:flex;align-items:center;gap:8px}
-.checks .check{color:var(--wa);font-weight:700;font-size:18px}
+    .hero .sub strong { color: #111; font-weight: 600; }
 
-/* PRICING */
-.pricing{max-width:440px;margin:0 auto;padding:80px 24px;text-align:center}
-.pricing h2{font-size:clamp(24px,4vw,40px);font-weight:800;margin-bottom:36px;letter-spacing:-0.02em}
-.price-card{background:white;border:2px solid var(--border);border-radius:24px;padding:40px;box-shadow:0 4px 24px rgba(0,0,0,0.04);position:relative;overflow:hidden}
-.price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gradient)}
-.price-amount{font-size:56px;font-weight:900;letter-spacing:-0.03em}
-.price-amount span{font-size:18px;font-weight:500;color:var(--gray)}
-.price-card ul{list-style:none;margin:24px 0;text-align:left}
-.price-card li{padding:8px 0;font-size:15px;color:var(--gray);display:flex;align-items:center;gap:10px}
-.price-card li::before{content:"✓";color:var(--coral);font-weight:700;font-size:16px}
-.price-card .btn{width:100%;justify-content:center;margin-top:20px;background:var(--dark);color:white;font-size:16px;padding:16px}
-.price-card .btn:hover{background:#1E293B}
-.price-card .trial{font-size:13px;color:var(--gray);margin-top:12px}
+    .cta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center; }
 
-/* FOOTER */
-.footer{padding:40px 24px;text-align:center;color:var(--gray);font-size:13px;border-top:1px solid var(--border)}
-.footer a{color:var(--gray);text-decoration:none;transition:color 0.2s}
-.footer a:hover{color:var(--dark)}
-.footer-links{display:flex;gap:24px;justify-content:center;margin-bottom:16px}
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 30px; background: #0088CC; color: #fff;
+      border-radius: 12px; font-size: 16px; font-weight: 700;
+      text-decoration: none; font-family: inherit;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,136,204,0.3); }
+    .btn-primary svg { width: 18px; height: 18px; }
 
-/* COMPARISON */
-.comparison{max-width:1080px;margin:0 auto;padding:80px 24px}
-.comparison .sub{color:var(--gray);font-size:16px;margin-bottom:36px}
-.comparison h2{font-size:clamp(24px,4vw,40px);font-weight:800;margin-bottom:8px;letter-spacing:-0.02em}
-.compare-table{width:100%;border-collapse:collapse;font-size:14px;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.04)}
-.compare-table th,.compare-table td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--border)}
-.compare-table thead th{background:var(--light);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.05em;color:var(--gray)}
-.compare-table thead th.highlight{color:var(--coral);background:var(--coral-light)}
-.compare-table td:first-child{font-weight:600;color:var(--dark)}
-.compare-table td.highlight{color:var(--coral);font-weight:700;background:var(--coral-light)}
-.compare-table tr:last-child td{border-bottom:none;font-weight:700}
-.compare-table tr:last-child td.highlight{font-size:16px}
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 15px 24px; background: none; color: #555;
+      border: 1.5px solid #ddd; border-radius: 12px;
+      font-size: 15px; font-weight: 600; text-decoration: none; font-family: inherit;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .btn-ghost:hover { border-color: #999; color: #111; }
 
-/* REAL COST */
-.realcost{background:var(--light);padding:80px 24px}
-.realcost-inner{max-width:800px;margin:0 auto;text-align:center}
-.realcost-inner h2{font-size:clamp(24px,4vw,40px);font-weight:800;margin-bottom:8px;letter-spacing:-0.02em}
-.realcost .sub{color:var(--gray);font-size:16px;margin-bottom:40px}
-.cost-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;text-align:left}
-.cost-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:32px}
-.cost-card.featured{border:2px solid var(--coral);position:relative}
-.cost-card.featured::before{content:'Best value';position:absolute;top:-12px;left:24px;background:var(--coral);color:white;font-size:12px;font-weight:700;padding:4px 12px;border-radius:100px}
-.cost-card h3{font-size:18px;font-weight:700;margin-bottom:20px}
-.cost-line{display:flex;justify-content:space-between;padding:10px 0;font-size:14px;color:var(--gray);border-bottom:1px solid var(--border)}
-.cost-line.total{border-bottom:none;color:var(--dark);font-weight:700;font-size:16px;margin-top:8px}
-.cost-note{font-size:13px;color:var(--gray);margin-top:12px}
-.cost-card.featured .cost-note{color:var(--coral)}
+    .fine-print { font-size: 13px; color: #999; margin-top: 14px; font-weight: 500; }
+    .accent { color: #FF6B6B; font-weight: 600; }
 
-/* FAQ */
-.faq{max-width:700px;margin:0 auto;padding:80px 24px}
-.faq h2{font-size:clamp(24px,4vw,40px);font-weight:800;margin-bottom:32px;letter-spacing:-0.02em}
-.faq-item{border-bottom:1px solid var(--border);padding:0}
-.faq-item summary{padding:20px 0;font-size:16px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
-.faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:'+';font-size:22px;color:var(--gray);font-weight:400;transition:transform 0.2s}
-.faq-item[open] summary::after{content:'−'}
-.faq-item p{padding:0 0 20px;font-size:15px;color:var(--gray);line-height:1.7}
+    /* ── Chat Demo ── */
+    .chat-demo {
+      max-width: 480px; width: 100%; margin: 0 auto;
+      padding: 0 24px;
+    }
+    .chat-window {
+      background: #f7f7f8; border-radius: 20px; padding: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04);
+    }
+    .chat-header {
+      display: flex; align-items: center; gap: 10px;
+      padding-bottom: 16px; border-bottom: 1px solid rgba(0,0,0,0.06);
+      margin-bottom: 16px;
+    }
+    .chat-avatar {
+      width: 36px; height: 36px; border-radius: 50%; object-fit: cover;
+    }
+    .chat-name { font-weight: 700; font-size: 14px; }
+    .chat-status { font-size: 11px; color: #0088CC; font-weight: 500; }
 
-@media(max-width:768px){
-  .hands-grid{grid-template-columns:1fr}
-  .hero-buttons{flex-direction:column;align-items:center}
-  .btn{width:100%;max-width:300px;justify-content:center}
-  .trust-logos{flex-wrap:wrap;gap:20px}
-  .compare-table{font-size:12px}
-  .compare-table th,.compare-table td{padding:10px 8px}
-  .cost-cards{grid-template-columns:1fr}
-}
-</style>
+    .msg {
+      margin-bottom: 12px; max-width: 85%;
+      animation: fadeIn 0.4s ease both;
+    }
+    .msg:nth-child(2) { animation-delay: 0.1s; }
+    .msg:nth-child(3) { animation-delay: 0.3s; }
+    .msg:nth-child(4) { animation-delay: 0.6s; }
+    .msg:nth-child(5) { animation-delay: 0.9s; }
+    .msg:nth-child(6) { animation-delay: 1.2s; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .msg-user {
+      margin-left: auto; background: #0088CC; color: #fff;
+      border-radius: 16px 16px 4px 16px; padding: 10px 14px;
+      font-size: 14px; line-height: 1.45;
+    }
+    .msg-bot {
+      background: #fff; color: #111;
+      border-radius: 16px 16px 16px 4px; padding: 10px 14px;
+      font-size: 14px; line-height: 1.45;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    .msg-bot strong { font-weight: 600; }
+    .msg-bot code {
+      background: #f0f0f0; padding: 1px 5px; border-radius: 4px;
+      font-size: 12px; font-family: 'SF Mono', Monaco, monospace;
+    }
+
+    /* ── Differentiators ── */
+    .diff-section {
+      padding: clamp(48px, 8vw, 80px) 24px;
+      background: #fafafa;
+    }
+    .diff-container { max-width: 800px; margin: 0 auto; }
+    .diff-title {
+      font-size: clamp(24px, 3.5vw, 32px); font-weight: 800;
+      letter-spacing: -0.03em; text-align: center; margin-bottom: 40px;
+    }
+    .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: #e8e8e8; border-radius: 16px; overflow: hidden; }
+    .diff-item { background: #fff; padding: 24px 28px; }
+    .diff-item .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 8px; }
+    .diff-item .chatgpt { color: #ccc; }
+    .diff-item .seb { color: #0088CC; }
+    .diff-item h3 { font-size: 16px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 4px; }
+    .diff-item p { font-size: 13px; color: #777; line-height: 1.45; }
+    .diff-item.highlight { background: #f0f9ff; }
+    .diff-item.highlight h3 { color: #0088CC; }
+
+    /* ── Bottom CTA ── */
+    .bottom-cta {
+      text-align: center;
+      padding: clamp(48px, 8vw, 80px) 24px;
+    }
+    .bottom-cta h2 {
+      font-size: clamp(28px, 4vw, 40px); font-weight: 900;
+      letter-spacing: -0.035em; margin-bottom: 12px;
+    }
+    .bottom-cta p { font-size: 17px; color: #555; margin-bottom: 28px; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center; padding: 24px; font-size: 12px; color: #bbb;
+      border-top: 1px solid #f0f0f0;
+    }
+    footer a { color: #999; text-decoration: none; }
+
+    /* ── Mobile ── */
+    @media (max-width: 640px) {
+      .cta-row { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+      .diff-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <img src="/logo-claw.png" alt="Sebastian" style="height:48px">
-      <span class="nav-logo-text">Sebastian</span>
+  <nav>
+    <div class="nav-left"><span>Sebastian</span></div>
+    <div class="nav-right">
+      <a href="../features.html">Features</a>
+      <a href="../manifesto.html">Manifesto</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>AI that actually<br>does things.</h1>
+    <p class="sub">Not just chat. Sebastian <strong>remembers you</strong>, browses the web, runs code, reads documents, and works 24/7 — right inside Telegram.</p>
+    <div class="cta-row">
+      <a href="https://t.me/GetSebastianBot" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.53 8.15l-1.83 8.63c-.14.62-.5.77-.99.48l-2.8-2.06-1.35 1.3c-.15.15-.28.28-.57.28l.2-2.85 5.18-4.68c.23-.2-.05-.31-.35-.12l-6.4 4.03-2.76-.86c-.6-.19-.61-.6.13-.89l10.78-4.15c.5-.18.93.12.76.89z"/></svg>
+        Try Free in Telegram
+      </a>
+      <a href="../features.html" class="btn-ghost">See how it works →</a>
+    </div>
+    <div class="fine-print">No credit card · <span class="accent">7 days free</span> · then $49/mo</div>
+  </div>
+
+  <!-- CHAT DEMO -->
+  <div class="chat-demo">
+    <div class="chat-window">
+      <div class="chat-header">
+        <img src="../sebastian-logo-new.jpg" alt="Sebastian" class="chat-avatar">
+        <div>
+          <div class="chat-name">Sebastian</div>
+          <div class="chat-status">● online</div>
+        </div>
+      </div>
+      <div class="msg msg-user">Find recent reviews of Acme Corp and summarize the main complaints</div>
+      <div class="msg msg-bot">Found 47 reviews across G2, Trustpilot, and Reddit. Here's the breakdown:<br><br><strong>Top 3 complaints:</strong><br>1. Slow customer support (mentioned 23×)<br>2. Pricing increased without notice (15×)<br>3. Mobile app crashes frequently (9×)<br><br>Want me to draft a competitive analysis based on these gaps?</div>
+      <div class="msg msg-user">Yes, and save it to my workspace</div>
+      <div class="msg msg-bot">Done ✅ Saved as <code>competitive-analysis.md</code><br><br>I also noticed Acme announced a price hike last week. Should I set up a weekly monitor on their pricing page?</div>
+    </div>
+  </div>
+
+  <!-- DIFFERENTIATORS -->
+  <div class="diff-section">
+    <div class="diff-container">
+      <h2 class="diff-title">What you get that ChatGPT doesn't</h2>
+      <div class="diff-grid">
+        <div class="diff-item">
+          <div class="label chatgpt">ChatGPT</div>
+          <h3>Forgets everything</h3>
+          <p>Every conversation starts from zero. No context, no history.</p>
+        </div>
+        <div class="diff-item highlight">
+          <div class="label seb">Sebastian</div>
+          <h3>Remembers you</h3>
+          <p>Persistent memory across sessions. Knows your projects, preferences, decisions.</p>
+        </div>
+
+        <div class="diff-item">
+          <div class="label chatgpt">ChatGPT</div>
+          <h3>Can only talk</h3>
+          <p>Generates text. Can't actually do things in the real world.</p>
+        </div>
+        <div class="diff-item highlight">
+          <div class="label seb">Sebastian</div>
+          <h3>Takes action</h3>
+          <p>Browses the web, runs code, creates files, searches, schedules tasks.</p>
+        </div>
+
+        <div class="diff-item">
+          <div class="label chatgpt">ChatGPT</div>
+          <h3>Lives in a browser tab</h3>
+          <p>Another app to open. Another tab to manage.</p>
+        </div>
+        <div class="diff-item highlight">
+          <div class="label seb">Sebastian</div>
+          <h3>Lives in your messenger</h3>
+          <p>Works in Telegram — the app already on your phone. Voice messages, images, files.</p>
+        </div>
+
+        <div class="diff-item">
+          <div class="label chatgpt">ChatGPT</div>
+          <h3>Generic for everyone</h3>
+          <p>Same assistant for 200M people. No personalization.</p>
+        </div>
+        <div class="diff-item highlight">
+          <div class="label seb">Sebastian</div>
+          <h3>Configured for you</h3>
+          <p>Personal onboarding, custom skills, your own workspace. Gets better over time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <div class="bottom-cta">
+    <h2>Stop chatting.<br>Start doing.</h2>
+    <p>Open Telegram. Press Start. That's it.</p>
+    <a href="https://t.me/GetSebastianBot" class="btn-primary">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.53 8.15l-1.83 8.63c-.14.62-.5.77-.99.48l-2.8-2.06-1.35 1.3c-.15.15-.28.28-.57.28l.2-2.85 5.18-4.68c.23-.2-.05-.31-.35-.12l-6.4 4.03-2.76-.86c-.6-.19-.61-.6.13-.89l10.78-4.15c.5-.18.93.12.76.89z"/></svg>
+      Try Free in Telegram
     </a>
-    <a href="#pricing" class="nav-cta">Get Started →</a>
+    <div class="fine-print">No credit card · <span class="accent">7 days free</span> · then $49/mo</div>
   </div>
-</nav>
 
-<section class="hero">
-  <div class="hero-badge">Full OpenClaw. Zero setup.</div>
-  <h1><em>OpenClaw</em> in your Telegram.<br>In one minute.</h1>
-  <p>No server. No API keys. No terminal. Skills, memory, voice, MCP — everything already configured and running. Just click Start.</p>
-  <div class="hero-buttons">
-    <a href="https://t.me/GetSebastianBot" class="btn btn-tg">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.53 8.15l-1.83 8.65c-.14.62-.5.77-.99.48l-2.75-2.03-1.33 1.27c-.15.15-.27.27-.55.27l.2-2.8 5.1-4.6c.22-.2-.05-.3-.34-.13L8.6 13.4l-2.72-.85c-.59-.18-.6-.59.12-.87l10.63-4.1c.5-.18.93.12.9.57z"/></svg>
-      Get in Telegram
-    </a>
-    <span class="btn btn-inactive">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 13.96c-.25.7-1.47 1.35-2.03 1.43-.54.08-1.07.12-3.45-.72-2.87-1.01-4.71-3.92-4.86-4.1-.14-.18-1.17-1.56-1.17-2.97 0-1.42.74-2.12 1.01-2.41.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.65.49.24.57.81 1.98.88 2.12.07.14.12.31.02.5-.09.18-.14.3-.28.46-.14.16-.29.36-.42.48-.14.14-.28.28-.12.56.16.27.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.16-.19.69-.8.87-1.08.18-.28.37-.23.62-.14.25.09 1.58.74 1.85.88.27.14.45.2.52.31.06.12.06.67-.19 1.37z"/></svg>
-      WhatsApp — coming soon
-    </span>
-  </div>
-</section>
-
-<section class="hands">
-  <div class="section-label">Full OpenClaw. Nothing stripped.</div>
-  <h2>Everything OpenClaw can do — ready out of the box.</h2>
-  <p class="sub">Same features you've seen in demos. Preconfigured, no API keys to manage, no YAML to edit.</p>
-  <div class="hands-grid">
-    <div class="hand">
-      <div class="hand-icon">🧩</div>
-      <h3>Skills & MCP</h3>
-      <p>All built-in skills work. Web search, design, GitHub, calendar — preconfigured, no API keys needed.</p>
-    </div>
-    <div class="hand">
-      <div class="hand-icon">🧠</div>
-      <h3>Persistent Memory</h3>
-      <p>MEMORY.md, daily notes, SOUL.md — full continuity system. Your AI remembers across sessions.</p>
-    </div>
-    <div class="hand">
-      <div class="hand-icon">🎙️</div>
-      <h3>Voice Messages</h3>
-      <p>Send voice, get voice back. STT and TTS already wired up — Groq, ElevenLabs, everything works.</p>
-    </div>
-    <div class="hand">
-      <div class="hand-icon">💬</div>
-      <h3>Multi-Messenger</h3>
-      <p>Telegram now. WhatsApp coming soon. Same instance, multiple channels — just like OpenClaw does it.</p>
-    </div>
-    <div class="hand">
-      <div class="hand-icon">⏰</div>
-      <h3>Cron & Heartbeats</h3>
-      <p>Scheduled tasks, proactive check-ins, background jobs. Your AI works even when you're offline.</p>
-    </div>
-    <div class="hand">
-      <div class="hand-icon">🔄</div>
-      <h3>Auto-Updates</h3>
-      <p>New OpenClaw version? We update for you. New model? Upgraded. You stay on the latest, always.</p>
-    </div>
-  </div>
-</section>
-
-<section class="included">
-  <div class="included-inner">
-    <div class="section-label">Zero setup</div>
-    <h2>We did the boring part.</h2>
-    <p class="sub">VPS, Node, API keys, webhooks, Docker, SSL, monitoring — all handled. You just use your OpenClaw.</p>
-    <div class="checks">
-      <span><span class="check">✓</span> Server & hosting</span>
-      <span><span class="check">✓</span> AI model included</span>
-      <span><span class="check">✓</span> Voice messages</span>
-      <span><span class="check">✓</span> Web search</span>
-      <span><span class="check">✓</span> Memory & context</span>
-      <span><span class="check">✓</span> 24/7 uptime</span>
-    </div>
-  </div>
-</section>
-
-<!-- COMPARISON -->
-<section class="comparison">
-  <div class="comparison-inner">
-    <div class="section-label">Why Sebastian?</div>
-    <h2>Hours of setup — or one minute</h2>
-    <p class="sub">You know what OpenClaw can do. Here's what it takes to actually get it running.</p>
-    <table class="compare-table">
-      <thead>
-        <tr><th></th><th>Do It Yourself</th><th class="highlight">Sebastian</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Server setup</td><td>Rent VPS, install Node, configure firewall</td><td class="highlight">✓ Done</td></tr>
-        <tr><td>AI model</td><td>Get API key, manage billing, monitor usage</td><td class="highlight">✓ Included</td></tr>
-        <tr><td>Telegram / WhatsApp</td><td>Create bot, configure webhooks, debug</td><td class="highlight">✓ One click</td></tr>
-        <tr><td>Voice messages</td><td>Set up Groq/Whisper, handle audio formats</td><td class="highlight">✓ Works</td></tr>
-        <tr><td>Web search</td><td>Brave API key, rate limits, billing</td><td class="highlight">✓ Works</td></tr>
-        <tr><td>Memory</td><td>Configure, test, maintain</td><td class="highlight">✓ Works</td></tr>
-        <tr><td>Updates</td><td>Monitor releases, test, deploy</td><td class="highlight">✓ Automatic</td></tr>
-        <tr><td>Uptime</td><td>Monitoring, restarts, backups — your problem</td><td class="highlight">✓ 24/7</td></tr>
-        <tr><td>Time to launch</td><td>8–10 hours (1–2h if you're a pro)</td><td class="highlight">1 minute</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- REAL COST section removed -->
-
-<!-- FAQ -->
-<section class="faq">
-  <div class="faq-inner">
-    <div class="section-label">Questions</div>
-    <h2>FAQ</h2>
-    <div class="faq-list">
-      <details class="faq-item">
-        <summary>What exactly do I get for $49/month?</summary>
-        <p>A fully working OpenClaw instance connected to your Telegram or WhatsApp. AI model, voice messages, web search, memory, 24/7 uptime — all included. Nothing extra to configure or pay for.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Do I need any technical skills?</summary>
-        <p>No. You open the Telegram bot, press Start, and your AI is live. That's it. No terminal, no code, no server setup.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Is this a full OpenClaw or a limited version?</summary>
-        <p>Full OpenClaw. Skills, memory, voice, cron, heartbeats, MCP — everything works. We just handle the infrastructure so you don't have to.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Can I cancel anytime?</summary>
-        <p>Yes. No contracts, no lock-in. Cancel whenever you want. The 7-day free trial doesn't even require a credit card.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Why not just host OpenClaw myself?</summary>
-        <p>You can! But you'll need a server ($5–20/mo), AI API keys ($20–40/mo), configure voice, search, webhooks, updates, and monitoring. Sebastian does all of that for $49. Your time is worth more than saving $5.</p>
-      </details>
-      <details class="faq-item">
-        <summary>Is WhatsApp available?</summary>
-        <p>WhatsApp support is coming soon. Right now Sebastian works with Telegram. Join the waitlist to get notified when WhatsApp launches.</p>
-      </details>
-      <details class="faq-item">
-        <summary>What AI model does Sebastian use?</summary>
-        <p>We use the best available models (currently Claude by Anthropic). As better models come out, we upgrade — you don't have to do anything.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section class="pricing" id="pricing">
-  <h2>Simple pricing.</h2>
-  <div class="price-card">
-    <div class="price-amount">$49<span>/month</span></div>
-    <ul>
-      <li>Telegram or WhatsApp</li>
-      <li>All "hands" included</li>
-      <li>Persistent memory</li>
-      <li>Voice messages</li>
-      <li>Web search</li>
-      <li>Always online — 24/7</li>
-      <li>Cancel anytime</li>
-    </ul>
-    <a href="https://t.me/GetSebastianBot" class="btn">Start Free Trial →</a>
-    <p class="trial">7 days free. No credit card required.</p>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="footer-links">
-    <a href="/manifesto">Manifesto</a>
-    <a href="https://cofounder.run">Ori — AI Co-Founder</a>
-    <a href="https://farol.io">Farol Labs</a>
-    <a href="https://twitter.com/cofounder_run">Twitter</a>
-  </div>
-  <p>© 2026 Farol Labs. Built with 🦀 and love.</p>
-</footer>
+  <footer>
+    © 2026 <a href="https://farol.team">Farol Labs</a> · <a href="../features.html">Features</a> · <a href="../manifesto.html">Manifesto</a>
+  </footer>
 
 </body>
 </html>
